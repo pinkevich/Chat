@@ -1,0 +1,19 @@
+a:hover {
+    text-decoration: none;
+    font-size: 15px;
+}
+.chat {
+    height: 250px;
+    background-color: #fafafa;
+}
+#chat {
+    width: 500px;
+    cursor: default;
+    background-color: #ffffff;
+    resize: none;
+    overflow: visible;
+    white-space: nowrap;
+}
+#id_text {
+    width: 500px;
+}

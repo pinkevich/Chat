@@ -1,0 +1,8 @@
+{% extends 'main.html' %}
+{% block reg %}
+<h2>Регистрация</h2>
+    <form action="{% url 'register' %}" method="post">{% csrf_token %}
+        {{ form }}<br/>
+        <input class="btn" type="submit" value="Регистрация"/>
+    </form>
+{% endblock %}

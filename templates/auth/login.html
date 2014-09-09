@@ -1,0 +1,12 @@
+{% extends 'main.html' %}
+{% block login %}
+    <h2>Войти</h2>
+    <form action="{% url 'login' %}" method="post">{% csrf_token %}
+        {% if login_error %}
+            <label class="label-warning">{{ login_error }}</label><br/>
+        {% endif %}
+        {{ login.username.label }}: {{ login.username }}
+        {{ login.password.label }}: {{ login.password }}<br/>
+        <input class="btn" type="submit" value="Вход"/>
+    </form>
+{% endblock %}

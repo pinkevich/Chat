@@ -1,0 +1,23 @@
+{% extends 'main.html' %}
+{% block body %}
+    <h2>Chat</h2>
+    {% if user.is_authenticated %}
+        <div class="chat">
+            <textarea name="chat" id="chat" rows="11" readonly></textarea>
+        </div>
+        <div class="enter">
+            <form action="{% url 'index' %}" method="post">{% csrf_token %}
+                {{ text.text }}<br/>
+                <button class="btn" type="submit">Отправить (Enter)</button>
+            </form>
+        </div>
+
+    {% else %}
+
+        <div class="chat">
+            <textarea name="chat" id="chat" rows="11" readonly></textarea>
+            <label class="alert-info">Для отправки сообщения <a href="{% url 'login' %}">войдите</a> или
+                <a href="{% url 'register' %}">зарегистрируйтесь!</a></label>
+        </div>
+    {% endif %}
+{% endblock %}

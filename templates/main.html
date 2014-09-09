@@ -1,0 +1,36 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}" type="text/css"/>
+    <link rel="stylesheet" href="{% static 'style.css' %}" type="text/css"/>
+    <script type="text/javascript" src="{% static 'js/jquery.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/script.js' %}"></script>
+    <title>Test Chat</title>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="span9">
+            <a href="{% url 'index' %}"><i class="icon-home"></i> Chat</a>
+        </div>
+        <div class="span3">
+            {% if user.is_authenticated %}
+                <a href="{% url 'out' %}"><i class="icon-off"></i> Выход ({{ user.username }})</a>
+            {% else %}
+                <a href="{% url 'login' %}"><i class="icon-user"></i> Войти</a>
+                <a href="{% url 'register' %}"><i class="icon-plus-sign"></i> Регистрация</a>
+            {% endif %}
+        </div>
+    </div>
+    <div class="row">
+        <div class="span12 text-center">
+            {% block login %}{% endblock %}
+            {% block reg %}{% endblock %}
+            {% block body %}{% endblock %}
+        </div>
+    </div>
+</div>
+</body>
+</html>
